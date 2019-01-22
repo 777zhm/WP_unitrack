@@ -517,18 +517,6 @@ header .email{
   left: 100px;
 }
 
-.show_more{
-  display: none;
-}
-
-.stage_item:hover .show_more_dots{
-  display: none;
-}
-
-.stage_item:hover .show_more{
-  display: inline;
-}
-
 .stage_item:hover .stage_item_box{
 
   -webkit-box-shadow: 4px 4px 9px 0px rgba(51,51,51,0.3);
@@ -573,7 +561,6 @@ header .email{
 .posibility_item{
   text-align: center;
 }
-
 
 .posibility_item img{
   margin-bottom: -20px;
