@@ -22,6 +22,10 @@ function assets_url( $pass ){
 	echo get_template_directory_uri().'/assets/'.$pass;
 }
 
+remove_filter( 'the_content', 'wpautop' );
+
+remove_filter( 'the_excerpt', 'wpautop' );
+
 /*
  * Enqueue theme scripts and styles.
  */

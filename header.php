@@ -18,19 +18,20 @@
 						?> 
 						<img class="img img-fluid" src="<?php echo $image[0]; ?>" alt="logotype">
 					</div>
-
-			  <?php if( have_rows('socail_networks', 'theme_settings') ): ?>
+					<?php if( have_rows('socail_networks', 'theme_settings') ): ?>
 					<div class="col-md-4 social_block text-left">
 						<?php while ( have_rows('socail_networks', 'theme_settings') ) : the_row();
-								$social_icon = get_sub_field('social_icon', 'theme_settings');
-								$social_link = get_sub_field('social_link', 'theme_settings');
+								$social_icon = get_sub_field('social_icon');
+								$social_link = get_sub_field('social_link');
 							?>
 						<a href="<?php echo $social_link; ?>">
+						<?php if($social_icon): ?>
 						<img src="<?php echo $social_icon['url']; ?>" alt="<?php echo $social_icon['alt'] ?>">
+						<?php endif; ?>
 						</a>
 						<?php endwhile; ?>
 					</div>
-				<?php else : endif; ?>
+					<?php else : endif; ?>
 					<div class="col-md-2_5">
 						<div class="telephone"><?php the_field('telephone', 'theme_settings'); ?></div>
 						<div class="telephone_hint"><?php the_field('telephone_hint', 'theme_settings'); ?></div>
@@ -58,72 +59,27 @@
 			</div>
 			<div class="uni_block">
 				<div class="container">
+					<?php if( have_rows('products', 'theme_settings') ): ?>
 					<div class="row">
+						<?php while ( have_rows('products', 'theme_settings') ) : the_row();
+						$product_icon = get_sub_field('product_icon');
+						?>
+
 						<div class="col-lg-3 col-md-4 col-6 ms_icon_box">
-							<div class="icon_text_wrapper text-left">Легковой транспорт</div>
-							<div class="uni_name">
-								<div class="icon_text_wrapper">
-									<img src="img/ms_icon_1.png" alt="ms_icon_1"><span>uni-auto</span>
+							<a href="<?php the_sub_field('product_link') ?>">
+								<div class="icon_text_wrapper text-left"><?php the_sub_field('product_market'); ?></div>
+								<div class="uni_name">
+									<div class="icon_text_wrapper">
+										<?php if($product_icon): ?>
+										<img src="<?php echo $product_icon['url']; ?>" alt="<?php echo $product_icon['alt'] ?>"><span><?php the_sub_field('product_name'); ?></span>
+										<?php endif; ?>
+									</div>
 								</div>
-							</div>
+							</a>
 						</div>
-						<div class="col-lg-3 col-md-4 col-6 ms_icon_box">
-							<div class="icon_text_wrapper text-left">Сельхозтеника</div>
-							<div class="uni_name">
-								<div class="icon_text_wrapper">
-									<img src="img/ms_icon_2.png" alt="ms_icon_2"><span>uni-Farm</span>
-								</div>
-							</div>
-						</div>
-						<div class="col-lg-3 col-md-4 col-6 ms_icon_box">
-							<div class="icon_text_wrapper text-left">Ценный груз</div>
-							<div class="uni_name">
-								<div class="icon_text_wrapper">
-									<img src="img/ms_icon_3.png" alt="ms_icon_3"><span>uni-spy</span>
-								</div>
-							</div>
-						</div>
-						<div class="col-lg-3 col-md-4 col-6 ms_icon_box">
-							<div class="icon_text_wrapper text-left">Персона</div>
-							<div class="uni_name">
-								<div class="icon_text_wrapper">
-									<img src="img/ms_icon_4.png" alt="ms_icon_4"><span>Uni-personal</span>
-								</div>
-							</div>
-						</div>
-						<div class="col-lg-3 col-md-4 col-6 ms_icon_box">
-							<div class="icon_text_wrapper text-left">Грузовой транспорт</div>
-							<div class="uni_name">
-								<div class="icon_text_wrapper">
-									<img src="img/ms_icon_5.png" alt="ms_icon_5"><span>Uni-track</span>
-								</div>
-							</div>
-						</div>
-						<div class="col-lg-3 col-md-4 col-6 ms_icon_box">
-							<div class="icon_text_wrapper text-left">Защита при угонах</div>
-							<div class="uni_name">
-								<div class="icon_text_wrapper">
-									<img src="img/ms_icon_6.png" alt="ms_icon_6"><span>Uni-Guard</span>
-								</div>
-							</div>
-						</div>
-						<div class="col-lg-3 col-md-4 col-6 ms_icon_box">
-							<div class="icon_text_wrapper text-left">Наемный транспорт</div>
-							<div class="uni_name">
-								<div class="icon_text_wrapper">
-									<img src="img/ms_icon_7.png" alt="ms_icon_7"><span>uni-rent</span>
-								</div>
-							</div>
-						</div>
-						<div class="col-lg-3 col-md-4 col-6 ms_icon_box">
-							<div class="icon_text_wrapper text-left">Животные</div>
-							<div class="uni_name">
-								<div class="icon_text_wrapper">
-									<img src="img/ms_icon_8.png" alt="ms_icon_8"><span>Uni-pet</span>
-								</div>
-							</div>
-						</div>
+						<?php endwhile; ?>
 					</div>
+					<?php else : endif; ?>
 				</div>
 			</div>
 		</header>

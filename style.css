@@ -320,7 +320,11 @@ header .email{
   margin-bottom: 10px;
 }
 
-.ms_icon_box:hover{
+.ms_icon_box a{
+  color: #fff;
+}
+
+.ms_icon_box:hover a{
   color: #ff5d5d;
   cursor: pointer;
 }
@@ -533,6 +537,19 @@ header .email{
 }
 
 .stage_item:hover img.hovered{
+  display: block;
+}
+
+
+.stage_full_text{
+  display: none;
+}
+
+.stage_item:hover .stage_short_text{
+  display: none;
+}
+
+.stage_item:hover .stage_full_text{
   display: block;
 }
 

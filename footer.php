@@ -22,8 +22,8 @@
 				<?php if( have_rows('socail_networks', 'theme_settings') ): ?>
 				<div class="footer_social_block text-left">
 					<?php while ( have_rows('socail_networks', 'theme_settings') ) : the_row();
-								$social_icon = get_sub_field('social_icon', 'theme_settings');
-								$social_link = get_sub_field('social_link', 'theme_settings');
+								$social_icon = get_sub_field('social_icon');
+								$social_link = get_sub_field('social_link');
 							?>
 					<a href="<?php echo $social_link; ?>">
 						<img src="<?php echo $social_icon['url']; ?>" alt="<?php echo $social_icon['alt'] ?>">

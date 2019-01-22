@@ -11,11 +11,10 @@
 					$gif = get_sub_field('gif');
 				?>
 				<div class="col-md-4 col-sm-6 posibility_item">
-					<?php if($gif): ?>  
-					<img class="img img-fluid hovered" src="<?php echo $gif['url']; ?>" alt="<?php echo $gif['alt'] ?>" >
-					<?php endif; ?>
-					<?php if($image): ?>  
-					<img class="img img-fluid static" src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt'] ?>" >
+					<?php if($gif): ?>
+						<img class="img img-fluid hovered" src="<?php echo $gif['url']; ?>" alt="<?php echo $gif['alt']; ?>" >
+					<?php endif; ?><?php if($image): ?>
+						<img class="img img-fluid static" src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" >
 					<?php endif; ?>
 					<h3><?php the_sub_field('heading');?></h3>
 					<div><?php the_sub_field('subheading');?></div>
@@ -30,11 +29,10 @@
 					$gif = get_sub_field('gif');
 				?>
 				<div class="col-md-4 col-sm-6 posibility_item">
-					<?php if($gif): ?>  
-					<img class="img img-fluid hovered" src="<?php echo $gif['url']; ?>" alt="<?php echo $gif['alt'] ?>" >
-					<?php endif; ?>
-					<?php if($image): ?> 
-					<img class="img img-fluid static" src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt'] ?>" >
+					<?php if($gif): ?>
+						<img class="img img-fluid hovered" src="<?php echo $gif['url']; ?>" alt="<?php echo $gif['alt']; ?>" >
+					<?php endif; ?><?php if($image): ?>
+					<img class="img img-fluid static" src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" >
 					<?php endif; ?>
 					<h3><?php the_sub_field('heading');?></h3>
 					<div><?php the_sub_field('subheading');?></div>
