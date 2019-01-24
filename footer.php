@@ -56,21 +56,24 @@
 <div class="modal fade" id="consultationModal" tabindex="-1" role="dialog" aria-labelledby="consultationModal" aria-hidden="true">
 	<div class="modal-dialog modal-dialog-centered" role="document">
 		<div class="modal-content">
-			<div class="modal-header">
-				<h5 class="modal-title" id="exampleModalLongTitle">Заказать консультацию</h5>
-				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-				<span aria-hidden="true">&times;</span>
-				</button>
-			</div>
-			<div class="modal-body">
-				<p class="modal_subtitle">Оставьте свои контактные данные и наш менеджер свяжется с Вами.</p>
-				<input type="text" class="form-control" placeholder="Ваше имя *" name="username" required>
-				<input type="tel" class="form-control" placeholder="Телефон *" name="usertelephone" required>
-				<input type="email" class="form-control" placeholder="Email" name="useremail" required>
-			</div>
-			<div class="modal-footer">
-				<button type="button" class="button_first modal_button_submit">Заказать</button>
-			</div>
+			
+			<form class="contact_form">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLongTitle">Заказать консультацию</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<p class="modal_subtitle">Оставьте свои контактные данные и наш менеджер свяжется с Вами.</p>
+					<input type="text" class="form-control" placeholder="Ваше имя *" name="username" required>
+					<input type="tel" class="form-control" placeholder="Телефон *" name="usertelephone" required>
+					<input type="email" class="form-control" placeholder="Email" name="useremail" required>
+				</div>
+				<div class="modal-footer">
+					<button type="submit" class="button_first modal_button_submit">Заказать</button>
+				</div>
+			</form>
 		</div>
 	</div>
 </div>
@@ -85,7 +88,7 @@
 						<span aria-hidden="true">&times;</span>
 						</button>
 				 </div>
-				 <form class="contact_form" id="contact_form">
+				 <form class="contact_form">
 						<div class="modal-body">
 							 <p class="modal_subtitle">Оставьте свои контактные данные и наш менеджер свяжется с Вами.</p>
 							 <input type="text" class="form-control" placeholder="Ваше имя *" name="username" required>
@@ -104,8 +107,7 @@
 	<div class="popup_bg">
 		<div class="popup">
 			<div class="popup_title">
-				<p>Спасибо!</p>
-				<p>Мы свяжемся с вами в ближайшее время</p>
+				<?php the_field('contact_form_answer', 'theme_settings'); ?>
 			</div>
 		</div>
 		<!--popup-->
@@ -114,7 +116,7 @@
 </div>
 <div id="load_banner" class="load_banner">
 	<div class="popup_bg">
-		<img src="img/loading.gif" alt="loading" >
+		<img src="<?php assets_url('images/loading.gif'); ?>" alt="loading" >
 	</div>
 	<!--popup_bg-->
 </div>

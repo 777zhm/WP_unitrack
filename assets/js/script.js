@@ -1,4 +1,3 @@
-
 (function($) {
 
 	$( document ).ready(function() {
@@ -25,28 +24,33 @@
 
 
 
-	   $('#contact_form').submit(function(e){
-	    e.preventDefault();
-	    send_contact_form( $(this) );
+	   $('.contact_form').submit(function(e){
+	    	e.preventDefault();
+	    	send_contact_form( $(this) );
 
 	        console.log('submit');
 	   })
 
 
 	  function send_contact_form( form ) {
-	    var data = form.serialize();
-
+	    var form_data = form.serialize();
+		  form_data += '&action=contact_form';
 	      $.ajax({
 	      type: 'POST',
-	      url: 'send.php',
+			url: '/wp-admin/admin-ajax.php',
 	      dataType: 'json',
-	      data: data,
+	      data: form_data,
 	      beforeSend: function() {
 	        $('#load_banner').children('.popup_bg').fadeIn();  
 	      },
 	      success: function() {
 	        $('#load_banner').children('.popup_bg').fadeOut();  
 	        $('#success_banner').children('.popup_bg').fadeIn();  
+	        clearForm( form );
+	        
+	        $('.modal').hide();
+			$('.modal-backdrop').hide();
+
 
 	      },
 	      error: function(){
@@ -55,7 +59,15 @@
 	      });
 	  }
 
-
+    function show_ok() {
+    	$('#load_banner').children('.popup_bg').fadeOut();  
+	    $('#success_banner').children('.popup_bg').fadeIn();  
+    }
+	function clearForm(container) {
+        container.find("input[type=text], input[type=file], input[type=tel]  input[type=email], input[type=password], textarea").each(function() {
+            $(this).val("");
+        });
+    }
 
 	$('.popup_bg').mousedown(function(e) {
 		var clicked = $(e.target); // get the element clicked
@@ -78,7 +90,7 @@
 		var y_bottom_pos = $(window).height() - e.clientY;
 		var left= change*20;
 		var  xpos=xpos*2;ypos=ypos*2;
-		console.log(xpos);
+
 		$('.satelite_artbord .satelite_mouse').css('bottom', 'calc( -3vw ' + ' + ' + (y_bottom_pos/25) + 'px )' );
 
 		$('.satelite_artbord .satelite_server').css('top',  (y_bottom_pos/35) + 'px').css('right', 'calc( 20vw ' + ' - ' + (xpos/40) + 'px )' );
@@ -101,3 +113,6 @@
 	});
 
 })( jQuery );
+
+
+
